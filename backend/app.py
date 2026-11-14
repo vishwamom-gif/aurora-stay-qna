@@ -22,7 +22,12 @@ VECTORSTORE_PATH = "faiss_index"
 
 rag_api = Flask("Aurora Stay API")
 
-
+@rag_api.get("/health")
+def health():
+    return jsonify({
+        "status": "healthy",
+        "vectors": vectorstore.index.ntotal
+    })
 # ---------------------------------------------------------
 # Load the embedding model
 # ---------------------------------------------------------
