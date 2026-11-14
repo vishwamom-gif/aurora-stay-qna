@@ -16,7 +16,7 @@ def retrieve(query: str, k: int = 2,vectorstore=None) -> list[str]:
 def generate(query, retrieved_chunks,model) -> str:
 
     prompt = f"""
-    You are an AI assistant answering questions about medical insurance policies.
+    You are AuroraStay Hotels’ internal policy assistant helping hotel staff answer guest questions.
 
     User Query:
     {query}
@@ -33,7 +33,7 @@ def generate(query, retrieved_chunks,model) -> str:
     6. Do not include unrelated information from the retrieved policy information.
     7. Answer the user's specific question directly and ensure the response addresses what was asked.
     8. Keep the answer concise, clear, and easy to understand.
-    9. Do not invent benefits, exclusions, limits, waiting periods, conditions, or coverage details.
+    9. Do not invent room features, occupancy limits, fees, cancellation deadlines, refund terms, amenities, or property-specific rules.
     10. If the information is insufficient, say:
         "The available policy documents do not contain enough information to answer this question."
         If the retrieved information conflicts, clearly mention the conflict.
