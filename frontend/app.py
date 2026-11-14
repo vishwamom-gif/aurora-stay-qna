@@ -1,4 +1,4 @@
-
+import os
 import streamlit as st
 import requests
 
@@ -7,7 +7,7 @@ import requests
 # Configuration
 # ---------------------------------------------------------
 
-BACKEND_URL = "http://localhost:7860"
+BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:7860").rstrip("/")
 
 
 # ---------------------------------------------------------
@@ -81,7 +81,7 @@ response_type = st.radio(
 
 query = st.text_input(
     "Your question",
-    placeholder="e.g., What is the waiting period for hospitalization?"
+    placeholder="e.g., What is the pet fee at ASH-ATL Midtown?"
 )
 
 
